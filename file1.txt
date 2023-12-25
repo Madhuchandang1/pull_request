@@ -1,3 +1,22 @@
-Hai im madhu 
-Im learning Devops 
+pipeline {
+    agent any
 
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Madhuchandang1/sample_node.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Push') {
+            steps {
+                echo 'This is Push Stage'
+            }
+        }            }
+        }
